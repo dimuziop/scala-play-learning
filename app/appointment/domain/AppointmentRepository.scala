@@ -1,7 +1,8 @@
-package quotes.domain
+package appointment.domain
 
 import com.google.inject.ImplementedBy
-import quotes.infrastructure.InMemoryRepo
+import appointment.infrastructure.InMemoryRepo
+import shared.domain.Failure
 
 /**
  * User: patricio
@@ -12,5 +13,7 @@ import quotes.infrastructure.InMemoryRepo
 trait AppointmentRepository {
 
   def getAll: List[Appointment]
+
+  def create(appointment: Appointment): Either[Failure, Appointment]
 
 }
